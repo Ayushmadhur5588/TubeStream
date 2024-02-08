@@ -8,7 +8,8 @@ const useChannelDetails = (channelID) => {
     const url =
       "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=" +
       channelID +
-      "&key=AIzaSyAb9CxzqY7CNEBa4pFfiXVymHC1Rmvn_3U";
+      "&key=" +
+      process.env.REACT_APP_GOOGLE_API_KEY;
 
     const data = await fetch(url);
     const json = await data.json();
