@@ -5,7 +5,7 @@ const VideoCard = (props) => {
   const showSideBar = useSelector((store) => store.app.showSideBar);
   const { snippet, statistics } = props?.data;
   const { viewCount } = statistics;
-  const { title, channelTitle, thumbnails, channelId } = snippet;
+  const { title, channelTitle, thumbnails, channelId , publishedAt} = snippet;
 
   useChannelDetails(channelId); 
   const channelUrl = useSelector(
@@ -25,6 +25,36 @@ const VideoCard = (props) => {
     }
   };
 
+  function calculateTimeAgo(publishedAt) {
+    const currentDate = new Date();
+    const publishedDate = new Date(publishedAt);
+
+    const millisecondsAgo = currentDate - publishedDate;
+    const secondsAgo = Math.floor(millisecondsAgo / 1000);
+    const minutesAgo = Math.floor(secondsAgo / 60);
+    const hoursAgo = Math.floor(minutesAgo / 60);
+    const daysAgo = Math.floor(hoursAgo / 24);
+    const weeksAgo = Math.floor(daysAgo / 7);
+    const monthsAgo = Math.floor(daysAgo / 30);
+    const yearsAgo = Math.floor(daysAgo / 365);
+
+    if (yearsAgo >= 2) {
+        return `${yearsAgo} years ago`;
+    } else if (monthsAgo >= 3) {
+        return `${monthsAgo} months ago`;
+    } else if (weeksAgo >= 2) {
+        return `${weeksAgo} weeks ago`;
+    } else if (daysAgo >= 2) {
+        return `${daysAgo} days ago`;
+    } else if (hoursAgo >= 1) {
+        return `${hoursAgo} hours ago`;
+    } else if (minutesAgo >= 1) {
+        return `${minutesAgo} minutes ago`;
+    } else {
+        return `${secondsAgo} seconds ago`;
+    }
+}
+
   return (
      <div className={`w-${showSideBar ? `96` : `80`} mb-8`}>
       <img
@@ -38,14 +68,19 @@ const VideoCard = (props) => {
         />
 
         <div className="pr-4 pt-2">
-          <h3 className="text-wrap font-semibold line-clamp-2 h-[3.2rem]">
+          <h3 className="text-wrap text-base font-semibold line-clamp-2 h-[3.2rem]">
             {title}
           </h3>
 
-          <p className="font-normal text-gray-500 text-base">{channelTitle}</p>
-          <p className="font-normal text-gray-500 text-base">
+          <p className="font-normal text-gray-500 text-sm">{channelTitle}</p>
+         <div className="flex">
+          <p className="font-normal text-gray-500 text-sm mr-1">
             {formatViews(viewCount)} views
           </p>
+          <p className="font-normal text-gray-500 text-sm">
+            • {calculateTimeAgo(publishedAt)} 
+          </p>
+          </div>
         </div>
       </div>
     </div>
