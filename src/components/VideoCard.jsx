@@ -58,7 +58,7 @@ const VideoCard = (props) => {
   return (
      <div className={`w-${showSideBar ? `96` : `80`} mb-8`}>
       <img
-        className="w-full h-1/3 rounded-lg"
+        className="w-12/12 h-1/3 rounded-lg"
         src={thumbnails?.maxres?.url}/>
       <div className="flex">
         <img
