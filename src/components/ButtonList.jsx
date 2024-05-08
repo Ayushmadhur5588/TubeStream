@@ -2,7 +2,7 @@ import React from "react";
 
 const ButtonList = () => {
   return (
-    <div className="flex overflow-x-scroll">
+    <div className="">
       <button className="px-4 font-medium rounded-md bg-gray-100 mx-2">
         All
       </button>

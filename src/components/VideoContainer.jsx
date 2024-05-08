@@ -23,7 +23,7 @@ const VideoContainer = () => {
   } 
 
   return (
-    <div className="flex flex-wrap justify-evenly pt-8 px-4">
+    <div className="flex flex-wrap justify-between pt-8 px-6">
       {video.map((item) => {
         return (
           <Link key={item.id} to={"/watch?v=" + item.id}>

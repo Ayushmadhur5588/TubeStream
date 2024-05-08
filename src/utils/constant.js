@@ -7,7 +7,32 @@ export const userIcon =
 
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
-export const youTubeApi = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=IN&key="+process.env.REACT_APP_GOOGLE_API_KEY;
+export const youTubeApi =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=IN&key=" +
+  process.env.REACT_APP_GOOGLE_API_KEY;
 
 export const watchVideoUrl = "https://www.youtube.com/watch?";
 export const channelDetail = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UClfos9f7uDdoun8ZyE9jYFg&key=${apiKey}`;
+export const shortsIcon = "https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg"
+export const buttonList = [
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+  { filterName: "All" },
+];
+
