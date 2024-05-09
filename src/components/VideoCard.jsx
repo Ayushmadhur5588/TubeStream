@@ -20,8 +20,8 @@ const VideoCard = (props) => {
       {showSideBar ? (
         <div className="w-96 mb-8">
           <img
-            className="w-full h-auto rounded-lg"
-            src={thumbnails?.maxres?.url}
+            className="w-full h-48 rounded-lg"
+            src={thumbnails?.maxres?.url || thumbnails?.high?.url ||thumbnails?.medium?.url || thumbnails?.default?.url}
             alt="Thumbnail"
           />
           <div className="flex">
@@ -53,8 +53,8 @@ const VideoCard = (props) => {
       ) : (
         <div className="w-80 mb-8">
           <img
-            className="w-full h-auto rounded-lg"
-            src={thumbnails?.maxres?.url}
+            className="w-full h-44 rounded-lg"
+            src={thumbnails?.maxres?.url || thumbnails?.high?.url}
             alt="Thumbnail"
           />
           <div className="flex">

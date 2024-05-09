@@ -11,7 +11,6 @@ const VideoContainer = () => {
   const getData = async () => {
     const data = await fetch(youTubeApi);
     const json = await data.json();
-    console.log(json);
     setvideo(json.items);
   };
   const background = theme? ("bg-black") : ("bg-white");

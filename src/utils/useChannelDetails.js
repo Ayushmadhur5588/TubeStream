@@ -13,7 +13,9 @@ const useChannelDetails = (channelID) => {
 
     const data = await fetch(url);
     const json = await data.json();
-    const profilePic = json.items[0].snippet.thumbnails.high.url? (json.items[0].snippet.thumbnails.high.url) : (json.items[0].snippet.thumbnails.default.url);
+    console.log(json);
+    const profilePic = json.items[0].snippet.thumbnails?.high?.url || json.items[0].snippet.thumbnails?.default?.url || json.items[0].snippet.thumbnails?.medium?.url;
+    
     dispatch(
       addChannelDetails({ channelID: channelID, profilePic: profilePic })
     );

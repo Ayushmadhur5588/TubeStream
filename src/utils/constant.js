@@ -14,7 +14,7 @@ export const userIcon =
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export const youTubeApi =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=IN&key=" +
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=NZ&key=" +
   process.env.REACT_APP_GOOGLE_API_KEY;
 
 export const watchVideoUrl = "https://www.youtube.com/watch?";
