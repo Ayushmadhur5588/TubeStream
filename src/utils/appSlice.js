@@ -5,6 +5,7 @@ const appSlice = createSlice({
   initialState: {
     showSideBar: true,
     channelDetails: {},
+    darkTheme: false,
   },
   reducers: {
     toggleMenu: (state) => {
@@ -17,9 +18,13 @@ const appSlice = createSlice({
       state.channelDetails[action.payload.channelID] =
         action.payload.profilePic;
     },
+    toggleDarkTheme: (state) => {
+      state.darkTheme = !state.darkTheme;
+    },
   },
 });
 
-export const { toggleMenu, closeMenu, addChannelDetails } = appSlice.actions;
+export const { toggleMenu, closeMenu, addChannelDetails, toggleDarkTheme } =
+  appSlice.actions;
 
 export default appSlice.reducer;

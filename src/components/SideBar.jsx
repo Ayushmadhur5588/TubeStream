@@ -6,7 +6,7 @@ const SideBar = () => {
   const showSideBar = useSelector((store) => store.app.showSideBar);
   
   return showSideBar ? (
-    <div className="bg-sky-400 w-96 h-screen pl-2 pt-2 font-semibold">
+    <div className="bg-sky-400 min-w-44 h-screen pl-2 pt-2 font-semibold">
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -17,18 +17,15 @@ const SideBar = () => {
       </ul>
     </div>
   ) : (
-    <div className="h-screen pl-2 pt-2 font-semibold">
+    <div className=" bg-sky-400 min-w-12 h-screen pl-2 pt-2 font-semibold">
       <ul>
-        <li className="my-4">
+        <li className="my-4 ml-2">
           <Link to="/">🏠</Link>
         </li>
         <li className="my-4">
-          <Link to="/"><img src={shortsIcon}/></Link>
+          <Link to="/"><img className="w-8 h-5" src={shortsIcon}/></Link>
         </li>
-        <li className="my-4">
-          <Link to="/"></Link>
-        </li>
-        <li className="my-4">
+        <li className="my-4 ml-2">
           <Link to="/">🏠</Link>
         </li>
       </ul>
