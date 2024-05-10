@@ -1,4 +1,3 @@
-import React from "react";
 import {
   youtubeLogo,
   hamburgerIcon,
@@ -22,19 +21,26 @@ const Header = () => {
   const searchSuggestion = useSelector(
     (store) => store.search?.searchSuggestion
   );
-  const handleClick = () => {
-    dispatch(toggleMenu());
-  };
 
   const getSuggestions = async () => {
-    console.log("API CALL");
     const response = await fetch(youtubeSearchApi + searchTxt);
     const data = await response.json();
     setSuggestion(data[1]);
+    dispatch(
+      addSearchSuggestion({
+        [searchTxt]: data[1],
+      })
+    );
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => getSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (searchSuggestion && searchSuggestion[searchTxt]) {
+        setSuggestion(searchSuggestion[searchTxt]);
+      } else {
+        getSuggestions();
+      }
+    }, 200);
     return () => {
       clearTimeout(timer);
     };
@@ -62,7 +68,7 @@ const Header = () => {
             }
             src={theme ? hamburgerIconDark : hamburgerIcon}
             alt="hamburgerIcon"
-            onClick={handleClick}
+            onClick={() => dispatch(toggleMenu())}
           />
           <img
             className={
@@ -94,7 +100,10 @@ const Header = () => {
             <div className="fixed w-4/12 bg-gray-50 rounded-xl mt-1">
               <ul className="p-2">
                 {suggestion.map((s) => (
-                  <li key={s} className="p-2 hover:bg-gray-300 rounded-lg cursor-default">
+                  <li
+                    key={s}
+                    className="p-2 hover:bg-gray-300 rounded-lg cursor-default"
+                  >
                     🔎 {s}
                   </li>
                 ))}
