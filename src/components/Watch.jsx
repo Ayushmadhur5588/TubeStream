@@ -22,6 +22,7 @@ const Watch = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
+      <h2>Comments</h2>
     </div>
   );
 };
