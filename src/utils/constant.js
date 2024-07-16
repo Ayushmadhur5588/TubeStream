@@ -24,7 +24,10 @@ export const watchVideoUrl = "https://www.youtube.com/watch?";
 export const channelDetail = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UClfos9f7uDdoun8ZyE9jYFg&key=${apiKey}`;
 export const shortsIcon =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg";
-export const formatViews = (views) => {
+
+export const homeIcon = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTSGAb5n3AaEHpOOD1VFNCOWVjDTVilROt4g&s"
+
+  export const formatViews = (views) => {
   if (views >= 1000000000) {
     return (views / 1000000000).toFixed(1) + "B";
   } else if (views >= 1000000) {

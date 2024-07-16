@@ -60,16 +60,23 @@ const Header = () => {
 
   return (
     <div className={theme ? "bg-black" : "bg-white"}>
-      <div className="flex px-4 justify-between shadow-md">
+      <div className="flex px-4 justify-between">
         <div className="flex w-3/12">
-          <img
-            className={
-              theme ? "w-10 h-8 cursor-pointer" : "w-2/12 p-3 cursor-pointer"
-            }
-            src={theme ? hamburgerIconDark : hamburgerIcon}
-            alt="hamburgerIcon"
-            onClick={() => dispatch(toggleMenu())}
-          />
+          
+          <svg
+            className="h-8 w-10 mt-4 cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
           <img
             className={
               theme
@@ -80,44 +87,57 @@ const Header = () => {
             alt="youtubeLogo"
           />
         </div>
-        <div className="mt-2 w-6/12 ">
-          <>
-            <input
-              className="p-2 w-8/12 h-3/4 focus:border-blue-600 outline-none rounded-l-3xl font-light border border-gray-300"
-              type="text"
-              placeholder="Search"
-              value={searchTxt}
-              onChange={(e) => setSearchTxt(e.target.value)}
-              onFocus={() => setShowSuggestion(true)}
-              onBlur={() => setShowSuggestion(false)}
+        <div className="mt-2 w-6/12 h-3/4 flex">
+          <input
+            className="-mb-2 px-2 w-9/12 h-11 focus:border-blue-600 outline-none rounded-l-3xl rounded-r-3xl font-light border border-gray-300"
+            type="text"
+            placeholder="Search"
+            value={searchTxt}
+            onChange={(e) => setSearchTxt(e.target.value)}
+            onFocus={() => setShowSuggestion(true)}
+            onBlur={() => setShowSuggestion(false)}
+          />
+          <svg
+            className="-ml-9 mt-2 h-6 w-6 text-gray-500 cousor cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
-            <button className="h-3/4 px-4 rounded-r-3xl text-white bg-gray-200 border border-gray-300">
-              {" "}
-              🔍{" "}
-            </button>
-          </>
+          </svg>
+
           {showSuggestion && suggestion.length > 0 && (
-            <div className="fixed w-4/12 bg-gray-50 rounded-xl mt-1">
+            <div className="fixed w-4/12 bg-gray-50 rounded-xl mt-11">
               <ul className="p-2">
                 {suggestion.map((s) => (
                   <li
                     key={s}
-                    className="p-2 hover:bg-gray-300 rounded-lg cursor-default"
+                    className="p-2 hover:bg-gray-300 rounded-lg cursor-default flex font-medium"
                   >
-                    🔎 {s}
+                    <svg
+                      className="mr-4 h-6 w-6 text-gray-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>{" "}
+                    {s}
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          <button
-            className="bg-gray-200 rounded-md p-2 mx-2"
-            onClick={() => {
-              dispatch(toggleDarkTheme());
-            }}
-          >
-            Dark Theme
-          </button>
         </div>
         <div>
           <img
