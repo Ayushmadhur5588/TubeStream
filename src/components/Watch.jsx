@@ -2,14 +2,27 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
+import { videoDetail } from "../utils/constant";
 
 const Watch = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
 
+const fetchVideoData = async() => {
+  const response = await fetch(videoDetail);
+  const data = await response.json();
+  console.log(data);
+}
+
+  useEffect(() => {
+    fetchVideoData();
+  },[])
+
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+
+
 
   return (
     <div>

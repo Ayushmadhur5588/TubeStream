@@ -1,12 +1,5 @@
 export const youtubeLogo =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/640px-YouTube_Logo_2017.svg.png";
-export const youtubeLogoDark =
-  "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png";
-
-export const hamburgerIcon =
-  "https://cdn.iconscout.com/icon/free/png-512/free-hamburger-menu-462145.png?f=webp&w=512";
-export const hamburgerIconDark =
-  "https://www.citypng.com/public/uploads/preview/transparent-hd-white-menu-burger-icon-31634946136ufll2pj5eo.png";
 
 export const userIcon =
   "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png";
@@ -22,10 +15,8 @@ export const youtubeSearchApi =
 
 export const watchVideoUrl = "https://www.youtube.com/watch?";
 export const channelDetail = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UClfos9f7uDdoun8ZyE9jYFg&key=${apiKey}`;
-export const shortsIcon =
-  "https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg";
 
-export const homeIcon = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTSGAb5n3AaEHpOOD1VFNCOWVjDTVilROt4g&s"
+export const videoDetail = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=pBM2xyco_Kg&key=${apiKey}`
 
   export const formatViews = (views) => {
   if (views >= 1000000000) {

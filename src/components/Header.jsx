@@ -1,13 +1,10 @@
 import {
   youtubeLogo,
-  hamburgerIcon,
   userIcon,
-  youtubeLogoDark,
-  hamburgerIconDark,
   youtubeSearchApi,
 } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu, toggleDarkTheme } from "../utils/appSlice";
+import { toggleMenu } from "../utils/appSlice";
 import { useState } from "react";
 import { useEffect } from "react";
 import { addSearchSuggestion } from "../utils/searchSuggestionSlice";
@@ -17,7 +14,7 @@ const Header = () => {
   const [searchTxt, setSearchTxt] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
-  const theme = useSelector((store) => store.app.darkTheme);
+
   const searchSuggestion = useSelector(
     (store) => store.search?.searchSuggestion
   );
@@ -59,7 +56,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={theme ? "bg-black" : "bg-white"}>
+    <div className={"bg-white"}>
       <div className="flex px-4 justify-between">
         <div className="flex w-3/12">
           
@@ -68,6 +65,7 @@ const Header = () => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            onClick={() => dispatch()}
           >
             <path
               stroke-linecap="round"
@@ -79,11 +77,10 @@ const Header = () => {
 
           <img
             className={
-              theme
-                ? "pt-4 ml-4 w-12 h-12 cursor-pointer"
-                : "p-4 w-6/12 cursor-pointer"
+              
+                 "p-4 w-6/12 cursor-pointer"
             }
-            src={theme ? youtubeLogoDark : youtubeLogo}
+            src={youtubeLogo}
             alt="youtubeLogo"
           />
         </div>

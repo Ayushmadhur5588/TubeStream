@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { homeIcon, shortsIcon } from "../utils/constant";
+import { youtubeLogo } from "../utils/constant";
 
 const SideBar = () => {
   const showSideBar = useSelector((store) => store.app.showSideBar);
@@ -223,12 +223,12 @@ const SideBar = () => {
       <ul>
         <li className="my-4 ml-2">
           <Link to="/">
-            <img className="w-10 h-8" src={homeIcon} alt="homeIcon" />
+            <img className="w-10 h-8" src={youtubeLogo} alt="homeIcon" />
           </Link>
         </li>
         <li className="my-4">
           <Link to="/">
-            <img className="w-8 h-5" src={shortsIcon} />
+            <img className="w-8 h-5" src={youtubeLogo} />
           </Link>
         </li>
         <li className="my-4 ml-2">
